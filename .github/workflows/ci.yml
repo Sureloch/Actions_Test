@@ -21,8 +21,5 @@ jobs:
       - name: Install Ant
         run: sudo apt-get install -y ant ant-optional
 
-	- name: Run tests
+      - name: Run tests
         run: ant -lib lib test
-
-      - name: Show test results
-        run: find . -name "*.txt" -path "*/test*" | xargs cat || echo "No report files found"
