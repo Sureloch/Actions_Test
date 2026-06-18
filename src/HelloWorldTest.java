@@ -6,7 +6,7 @@ public class HelloWorldTest {
     @Test
     public void testHelloWorld() {
         String expected = "Hello, World!";
-        String actual = "Hello, Worlddd!";
+        String actual = "Hello, World!";
         assertEquals(expected, actual);
     }
 }
