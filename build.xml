@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HelloWorld" default="jar" basedir=".">
+
+  <path id="classpath">
+    <fileset dir="lib" includes="*.jar"/>
+    <pathelement location="build"/>
+  </path>
+
+  <target name="compile">
+    <javac srcdir="src" destdir="build" 
+           includeantruntime="false"
+           classpathref="classpath"/>
+  </target>
+
+  <target name="test" depends="compile">
+    <junit printsummary="yes">
+      <classpath refid="classpath"/>
+      <test name="HelloWorldTest"/>
+    </junit>
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="dist\HelloWorld.jar" basedir="build">
+      <manifest>
+        <attribute name="Main-Class" value="HelloWorld"/>
+      </manifest>
+    </jar>
+  </target>
+
+</project>
