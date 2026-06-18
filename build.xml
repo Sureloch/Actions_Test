@@ -19,9 +19,6 @@
     <javac srcdir="src" destdir="build" 
            includeantruntime="false"
            classpathref="classpath"/>
-    <javac srcdir="src/test" destdir="build" 
-           includeantruntime="false"
-           classpathref="classpath"/>
   </target>
 
   <target name="test" depends="compile">
@@ -32,7 +29,7 @@
   </target>
 
   <target name="jar" depends="compile">
-    <jar destfile="dist/HelloWorld.jar" basedir="build">
+    <jar destfile="dist\HelloWorld.jar" basedir="build">
       <manifest>
         <attribute name="Main-Class" value="HelloWorld"/>
       </manifest>
