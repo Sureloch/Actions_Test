@@ -28,12 +28,6 @@
   </junit>
 </target>
 
-  <target name="test" depends="compile">
-    <junit printsummary="yes" haltonfailure="yes">
-      <classpath refid="classpath"/>
-      <test name="HelloWorldTest"/>
-    </junit>
-  </target>
 
   <target name="jar" depends="compile">
     <jar destfile="dist\HelloWorld.jar" basedir="build">
