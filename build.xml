@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="HelloWorld" default="jar" basedir=".">
 	<target name="clean">
-  <delete dir="build"/>
-  <delete dir="dist"/>
-</target>
+    <delete dir="build"/>
+    <delete dir="dist"/>
+  </target>
 
 	<target name="init">
-  <mkdir dir="build"/>
-  <mkdir dir="dist"/>
-</target>
+    <mkdir dir="build"/>
+    <mkdir dir="dist"/>
+  </target>
 
   <path id="classpath">
     <fileset dir="lib" includes="*.jar"/>
     <pathelement location="build"/>
   </path>
 
-  <target name="test" depends="compile">
-  <junit printsummary="yes" haltonfailure="yes">
-    <classpath>
-      <path refid="classpath"/>
-      <pathelement path="build"/>
-    </classpath>
-    <formatter type="plain" usefile="false"/>
-    <batchtest todir="build">
-      <fileset dir="src" includes="*Test.java"/>
-    </batchtest>
-  </junit>
-</target>
+  <target name="compile" depends="init">
+    <javac srcdir="src" destdir="build" classpathref="classpath"/>
+  </target>
 
+  <target name="test" depends="compile">
+    <junit printsummary="yes" haltonfailure="yes">
+      <classpath>
+        <path refid="classpath"/>
+        <pathelement path="build"/>
+      </classpath>
+      <formatter type="plain" usefile="false"/>
+      <batchtest todir="build">
+        <fileset dir="src" includes="*Test.java"/>
+        </batchtest>
+    </junit>
+  </target>
 
   <target name="jar" depends="compile">
     <jar destfile="dist\HelloWorld.jar" basedir="build">
