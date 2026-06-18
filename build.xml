@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="HelloWorld" default="jar" basedir=".">
+	<target name="clean">
+  <delete dir="build"/>
+  <delete dir="dist"/>
+</target>
+
+	<target name="init">
+  <mkdir dir="build"/>
+  <mkdir dir="dist"/>
+</target>
 
   <path id="classpath">
     <fileset dir="lib" includes="*.jar"/>
     <pathelement location="build"/>
   </path>
 
-  <target name="compile">
+  <target name="compile" depends="init">
     <javac srcdir="src" destdir="build" 
            includeantruntime="false"
            classpathref="classpath"/>
