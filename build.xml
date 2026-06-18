@@ -15,8 +15,12 @@
     <pathelement location="build"/>
   </path>
 
-  <target name="compile" depends="init">
-    <javac srcdir="src" destdir="build" classpathref="classpath"/>
+   <target name="compile" depends="init">
+    <javac srcdir="src" destdir="build" 
+           includeantruntime="false"
+           classpathref="classpath"
+           source="25"
+           target="25"/>
   </target>
 
   <target name="test" depends="compile">
