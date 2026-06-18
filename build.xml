@@ -13,7 +13,7 @@
   </target>
 
   <target name="test" depends="compile">
-    <junit printsummary="yes">
+    <junit printsummary="yes" haltonfailure="yes">
       <classpath refid="classpath"/>
       <test name="HelloWorldTest"/>
     </junit>
